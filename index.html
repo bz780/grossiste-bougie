@@ -229,10 +229,15 @@ header { background: var(--white); border-bottom: 1px solid var(--border); posit
 
 /* CATALOGUE */
 .catalogue-section { background: var(--bg); }
-.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
-.product-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .products-grid { grid-template-columns: 1fr; } }
+.product-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.product-thumb { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3.2rem; position: relative; }
+.product-thumb { height: 180px; display: block; position: relative; overflow: hidden; background: var(--bg); }
+.product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.product-card:hover .product-thumb img { transform: scale(1.05); }
 .product-badge { position: absolute; top: 12px; left: 12px; background: var(--amber); color: var(--white); font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; }
 .product-badge.gold { background: var(--gold); color: #3d2600; }
 .product-badge.green { background: var(--green); }
@@ -251,7 +256,8 @@ header { background: var(--white); border-bottom: 1px solid var(--border); posit
 
 /* PRICING */
 .pricing-section { background: var(--white); }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
 .pricing-card { border: 1.5px solid var(--border); border-radius: var(--radius); padding: 28px; position: relative; background: var(--white); transition: transform .2s, box-shadow .2s; }
 .pricing-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .pricing-card.featured { border-color: var(--amber); background: var(--amber); color: var(--white); }
@@ -294,10 +300,14 @@ header { background: var(--white); border-bottom: 1px solid var(--border); posit
 
 /* GAMME CIRES */
 .cires-section { background: var(--bg); }
-.cires-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
-.cire-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; gap: 16px; align-items: flex-start; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s; }
+.cires-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .cires-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .cires-grid { grid-template-columns: 1fr; } }
+.cire-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s; display: flex; flex-direction: column; }
 .cire-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.cire-icon { font-size: 2.2rem; flex-shrink: 0; }
+.cire-photo { width: 100%; height: 160px; overflow: hidden; background: var(--bg); }
+.cire-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cire-body { padding: 20px 22px 22px; }
 .cire-name { font-size: 1rem; font-weight: 700; color: var(--amber-dark); margin-bottom: 6px; }
 .cire-desc { font-size: .85rem; color: var(--ink-light); line-height: 1.55; margin-bottom: 12px; }
 .cire-chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -322,7 +332,9 @@ header { background: var(--white); border-bottom: 1px solid var(--border); posit
 
 /* SEGMENTS */
 .segments-section { background: var(--bg); }
-.segments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.segments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 900px) { .segments-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .segments-grid { grid-template-columns: 1fr; } }
 .segment-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s; }
 .segment-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--amber); }
 .segment-icon { font-size: 2.4rem; margin-bottom: 10px; }
@@ -331,7 +343,8 @@ header { background: var(--white); border-bottom: 1px solid var(--border); posit
 
 /* TESTI */
 .testi-section { background: var(--white); padding-bottom: 48px; }
-.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; } }
 .testi-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
 .stars { color: #f5a623; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
 .testi-text { font-size: .9rem; color: var(--ink-light); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
@@ -460,7 +473,7 @@ footer a { color: rgba(255,255,255,.55); }
         </div>
       </div>
       <div class="hero-photo">
-        <img src="/images/hero.jpg" alt="Bougies parfumées en gros — grossiste bougie professionnel" loading="eager">
+        <img src="/images/hero.jpg" alt="Bougies parfumées en gros — grossiste bougie professionnel" loading="eager" width="420" height="380">
       </div>
     </div>
   </div>
@@ -481,10 +494,10 @@ footer a { color: rgba(255,255,255,.55); }
 
 <!-- PHOTO STRIP -->
 <div class="photo-strip">
-  <img src="/images/strip1.jpg" alt="Bougies parfumées soja en gros — grossiste bougie" loading="lazy">
-  <img src="/images/strip2.jpg" alt="Bougie pilier décorative en gros — fournisseur bougie" loading="lazy">
-  <img src="/images/strip3.jpg" alt="Tea lights et chauffe-plats en gros — lot bougie mariage" loading="lazy">
-  <img src="/images/strip4.jpg" alt="Grossiste bougie mariage &amp; événementiel — tea lights" loading="lazy">
+  <img src="/images/strip1.jpg" alt="Bougies parfumées soja en gros — grossiste bougie" loading="lazy" width="400" height="200">
+  <img src="/images/strip2.jpg" alt="Bougie pilier décorative en gros — fournisseur bougie" loading="lazy" width="400" height="200">
+  <img src="/images/strip3.jpg" alt="Tea lights et chauffe-plats en gros — lot bougie mariage" loading="lazy" width="400" height="200">
+  <img src="/images/strip4.jpg" alt="Grossiste bougie mariage &amp; événementiel — tea lights" loading="lazy" width="400" height="200">
 </div>
 
 <!-- INTRO SEO -->
@@ -531,7 +544,7 @@ footer a { color: rgba(255,255,255,.55); }
     <div class="products-grid" id="productsGrid">
 
       <div class="product-card" data-cat="soja">
-        <div class="product-thumb" style="background:#fdf4e8;">🕯️<span class="product-badge">Bestseller</span></div>
+        <div class="product-thumb"><img src="/images/p1-soja-pot-verre.webp" alt="Bougie parfumée soja en pot verre — grossiste bougie" loading="lazy" width="800" height="600"><span class="product-badge">Bestseller</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">100% Soja</span><span class="meta-chip">Pot verre</span><span class="meta-chip">40 fragrances</span></div>
           <div class="product-name">Bougie Parfumée Soja — Pot Verre</div>
@@ -543,7 +556,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="soja">
-        <div class="product-thumb" style="background:#fef6ea;">🕯️<span class="product-badge gold">Premium</span></div>
+        <div class="product-thumb"><img src="/images/p2-soja-coco.webp" alt="Bougie soja-coco longue durée 60h — grossiste premium" loading="lazy" width="800" height="600"><span class="product-badge gold">Premium</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Soja + Coco</span><span class="meta-chip">200g</span><span class="meta-chip">60h combustion</span></div>
           <div class="product-name">Bougie Soja-Coco Longue Durée</div>
@@ -555,7 +568,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="pilier">
-        <div class="product-thumb" style="background:#faf6f0;">🕯️<span class="product-badge">Pro</span></div>
+        <div class="product-thumb"><img src="/images/p3-pilier.webp" alt="Bougie pilier décorative blanche en gros — fournisseur bougie" loading="lazy" width="800" height="600"><span class="product-badge">Pro</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Pilier Blanc</span><span class="meta-chip">7–25cm</span><span class="meta-chip">30 coloris</span></div>
           <div class="product-name">Bougie Pilier Décorative</div>
@@ -567,7 +580,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="tealight">
-        <div class="product-thumb" style="background:#fffbf3;">✨<span class="product-badge">Lot 100</span></div>
+        <div class="product-thumb"><img src="/images/p4-tealight.webp" alt="Tea light chauffe-plat lot 100 pièces — grossiste bougie" loading="lazy" width="800" height="600"><span class="product-badge">Lot 100</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Tea Light 4h</span><span class="meta-chip">Boîte 100</span><span class="meta-chip">Blanc &amp; coloris</span></div>
           <div class="product-name">Chauffe-Plat / Tea Light Classique</div>
@@ -579,7 +592,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="tealight">
-        <div class="product-thumb" style="background:#f8fcf4;">✨<span class="product-badge green">Véget.</span></div>
+        <div class="product-thumb"><img src="/images/p5-tealight-vegetal.webp" alt="Tea light cire végétale 8h sans paraffine — grossiste" loading="lazy" width="800" height="600"><span class="product-badge green">Véget.</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Tea Light Végétal</span><span class="meta-chip">8h</span><span class="meta-chip">Sans paraffine</span></div>
           <div class="product-name">Tea Light Cire Végétale 8h</div>
@@ -591,7 +604,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="mariage">
-        <div class="product-thumb" style="background:#fffaf5;">💍<span class="product-badge gold">Mariage</span></div>
+        <div class="product-thumb"><img src="/images/p6-mariage-ivoire.webp" alt="Lot bougie mariage ivoire pilier crème — grossiste événementiel" loading="lazy" width="800" height="600"><span class="product-badge gold">Mariage</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Pilier Ivoire</span><span class="meta-chip">Lot mariage</span><span class="meta-chip">Parfumé / neutre</span></div>
           <div class="product-name">Lot Bougie Mariage Ivoire</div>
@@ -603,7 +616,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="mariage">
-        <div class="product-thumb" style="background:#fff9f0;">💍</div>
+        <div class="product-thumb"><img src="/images/p7-flottante.webp" alt="Bougie flottante événementiel coloris pastel — grossiste" loading="lazy" width="800" height="600"></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Flottante</span><span class="meta-chip">Ø 4–8cm</span><span class="meta-chip">6 coloris</span></div>
           <div class="product-name">Bougie Flottante Événementiel</div>
@@ -615,7 +628,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="deco">
-        <div class="product-thumb" style="background:#f5f2ec;">🏠</div>
+        <div class="product-thumb"><img src="/images/p8-photophore.webp" alt="Photophore en verre soufflé recyclé — grossiste déco" loading="lazy" width="800" height="600"></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Photophore Verre</span><span class="meta-chip">3 tailles</span><span class="meta-chip">Ambiance</span></div>
           <div class="product-name">Photophore en Verre Grossiste</div>
@@ -627,7 +640,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="deco">
-        <div class="product-thumb" style="background:#f8f4ee;">🏠<span class="product-badge">Hiver</span></div>
+        <div class="product-thumb"><img src="/images/p9-sculptee.webp" alt="Bougie décorative sculptée géométrique — tendance déco" loading="lazy" width="800" height="600"><span class="product-badge">Hiver</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Bougie Sculptée</span><span class="meta-chip">Déco</span><span class="meta-chip">Saisonnière</span></div>
           <div class="product-name">Bougie Décorative Sculptée</div>
@@ -639,7 +652,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="mb">
-        <div class="product-thumb" style="background:#fff8f0;">🏷️<span class="product-badge">Private Label</span></div>
+        <div class="product-thumb"><img src="/images/p10-marque-blanche.webp" alt="Bougie marque blanche personnalisée — private label grossiste" loading="lazy" width="800" height="600"><span class="product-badge">Private Label</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Marque blanche</span><span class="meta-chip">Sur-mesure</span><span class="meta-chip">Soja ou végétal</span></div>
           <div class="product-name">Bougie Marque Blanche — Starter</div>
@@ -651,7 +664,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="mb">
-        <div class="product-thumb" style="background:#fffcf5;">🏷️<span class="product-badge gold">Pro</span></div>
+        <div class="product-thumb"><img src="/images/p11-coffret.webp" alt="Coffret bougie cadeau set 3 pièces — grossiste packaging" loading="lazy" width="800" height="600"><span class="product-badge gold">Pro</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Coffret bougie</span><span class="meta-chip">Set 3 pièces</span><span class="meta-chip">Packaging cadeau</span></div>
           <div class="product-name">Coffret Bougie Cadeau Grossiste</div>
@@ -663,7 +676,7 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="product-card" data-cat="soja">
-        <div class="product-thumb" style="background:#edf7f1;">🌿<span class="product-badge green">Éco</span></div>
+        <div class="product-thumb"><img src="/images/p12-soja-terre.webp" alt="Bougie soja naturelle pot terre cuite huiles essentielles" loading="lazy" width="800" height="600"><span class="product-badge green">Éco</span></div>
         <div class="product-body">
           <div class="product-meta"><span class="meta-chip">Soja GOTS</span><span class="meta-chip">Pot terre cuite</span><span class="meta-chip">Huiles essentielles</span></div>
           <div class="product-name">Bougie Soja Naturelle — Pot Terre</div>
@@ -786,8 +799,8 @@ footer a { color: rgba(255,255,255,.55); }
     <div class="cires-grid">
 
       <div class="cire-card">
-        <div class="cire-icon">🌿</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c1-soja.webp" alt="Cire de soja sans OGM en gros — fournisseur bougie" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Cire de Soja Grossiste</div>
           <p class="cire-desc">100% soja sans OGM, d'origine américaine ou européenne. Rendu blanc mat naturel, excellente rétention de fragrance, durée de combustion +30% vs paraffine. Notre cire phare pour le grossiste bougie parfumée haut de gamme.</p>
           <div class="cire-chips"><span class="cire-chip">Sans OGM</span><span class="cire-chip">Végétal</span><span class="cire-chip">Long durée</span></div>
@@ -795,8 +808,8 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="cire-card">
-        <div class="cire-icon">🌻</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c2-colza.webp" alt="Cire de colza France non-OGM — bougie made in France" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Cire de Colza France</div>
           <p class="cire-desc">Produite en France à partir de colza non-OGM. Cire végétale locale, empreinte carbone réduite vs soja importé. Point de fusion bas, idéal chauffe-plat et votive. Certifiable Origine France.</p>
           <div class="cire-chips"><span class="cire-chip">Made in France</span><span class="cire-chip">Non-OGM</span><span class="cire-chip">Basse empreinte</span></div>
@@ -804,8 +817,8 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="cire-card">
-        <div class="cire-icon">🥥</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c3-coco.webp" alt="Cire de coco premium translucide — bougie luxe" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Cire de Coco Premium</div>
           <p class="cire-desc">Huile de coco hydrogénée, rendu translucide caractéristique, point de fusion très bas. Brûle proprement, sans suie. Positionnement luxe, utilisée seule ou en mélange soja-coco pour une finition mat velouté incomparable.</p>
           <div class="cire-chips"><span class="cire-chip">Luxe</span><span class="cire-chip">Propre</span><span class="cire-chip">Mélange possible</span></div>
@@ -813,8 +826,8 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="cire-card">
-        <div class="cire-icon">🌾</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c4-mix.webp" alt="Cire végétal mix économique soja colza — grossiste volume" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Cire Végétal Mix Économique</div>
           <p class="cire-desc">Mélange végétal (soja + colza + additifs naturels). Rapport qualité-prix optimal pour les volumes importants. Surface lisse, excellente adhérence en pot. Idéal marque distributeur et lots événementiels.</p>
           <div class="cire-chips"><span class="cire-chip">Économique</span><span class="cire-chip">Lisse</span><span class="cire-chip">Grand volume</span></div>
@@ -822,8 +835,8 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="cire-card">
-        <div class="cire-icon">⬜</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c5-paraffine.webp" alt="Paraffine professionnelle haute qualité — bougie pilier" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Paraffine Professionnelle</div>
           <p class="cire-desc">Paraffine raffinée haute qualité, blanche et translucide. Indétrônable pour piliers, bougies moulées, tea lights. Surface lisse parfaite, excellente prise colorante. Prix le plus bas du catalogue pour les lots volume.</p>
           <div class="cire-chips"><span class="cire-chip">Piliers</span><span class="cire-chip">Tea lights</span><span class="cire-chip">Prix bas</span></div>
@@ -831,8 +844,8 @@ footer a { color: rgba(255,255,255,.55); }
       </div>
 
       <div class="cire-card">
-        <div class="cire-icon">♻️</div>
-        <div>
+        <div class="cire-photo"><img src="/images/c6-recyclee.webp" alt="Cire recyclée certifiée GRS — bougie RSE traçable" loading="lazy" width="800" height="600"></div>
+        <div class="cire-body">
           <div class="cire-name">Cire Recyclée Certifiée GRS</div>
           <p class="cire-desc">Cire d'origine recyclée, certifiée Global Recycled Standard. Pour les marques avec engagements RSE et bilan carbone. Traçabilité complète fournie, documentation disponible sur demande pour vos propres clients.</p>
           <div class="cire-chips"><span class="cire-chip">GRS Certifié</span><span class="cire-chip">RSE</span><span class="cire-chip">Traçable</span></div>
@@ -1177,11 +1190,7 @@ function filterProducts(cat, btn) {
 
     // Anti-bot : honeypot _gotcha
     const gotcha = form.querySelector('input[name="_gotcha"]');
-    if (gotcha && gotcha.value) return; else {
-        alert('Veuillez compléter la vérification anti-robot.');
-      }
-      return;
-    }
+    if (gotcha && gotcha.value) return;
 
     if (!form.checkValidity()) { form.reportValidity(); return; }
 

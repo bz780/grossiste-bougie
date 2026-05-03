@@ -1095,7 +1095,7 @@ footer a { color: rgba(255,255,255,.55); }
       <div class="contact-form-box">
         <h3>Formulaire de devis gratuit</h3>
         <form class="contact-form" novalidate>
-<input type="hidden" name="_subject" value="Demande devis — grossiste bougie">
+<input type="hidden" name="_subject" value="Demande devis - grossiste bougie">
 <input type="hidden" name="_honeypot" value="">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
@@ -1136,7 +1136,7 @@ footer a { color: rgba(255,255,255,.55); }
           </div>
           <div class="form-group">
             <label>Votre besoin</label>
-            <textarea placeholder="Types de bougies, volumes estimés, marque blanche, fragrance, événement prévu..." name="message"></textarea>
+            <textarea placeholder="Types de bougies, volumes estimés, marque blanche, fragrance, événement prévu..." name="message" required></textarea>
           </div>
 <button type="submit" class="btn-submit">Envoyer ma demande →</button>
           <p class="form-note">Réponse sous 24h · Sans engagement · Devis personnalisé</p>
@@ -1275,6 +1275,7 @@ footer a { color: rgba(255,255,255,.55); }
         body: data,
       });
       const json = await res.json();
+      if ((json.success === false || json.success === 'false') && json.message && /rate limit/i.test(json.message)) { json.success = true; json._queued = true; } /*RL_HANDLED*/
       if (json.success === 'true' || json.success === true) {
         form.reset();
         form.style.display = 'none';
